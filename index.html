@@ -48,11 +48,10 @@ document.querySelector("#text").innerHTML = "You got " + speed + "WPM and " + ac
             })
             for (let i = 0; i < words.length; i++) {
                 var word = words[Math.floor(Math.random()* words.length)];
-                words = words.filter(w=> w=== word)
-                document.querySelector("#text").append(word + " ")
-                text += word + " "
+                words = words.filter(w=> w!= word)
+                text += word + " ";
             }
-            
+            document.querySelector("#text").innerHTML = text;
             document.onkeydown = (e)=> {
              if(first == false){
                 first = true;
