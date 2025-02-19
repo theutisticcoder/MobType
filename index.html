@@ -40,7 +40,7 @@ function tellspeed(){
     document.onkeydown = null;
 var speed = wordcount;
 var accuracy = correct/(correct + incorrect);
-document.querySelector("#text").innerHTML = "You got " + speed + "WPM and " + accuracy*100 + "% accuracy."
+document.querySelector("#text").innerHTML = "You got " + speed + "WPM and " + (accuracy*100).toFixed(2) + "% accuracy."
 }
         document.getElementById("start").onclick = () => {
             fetch("words").then((res) => res.text()).then((text) => {
