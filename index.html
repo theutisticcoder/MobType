@@ -30,8 +30,18 @@
     <button id="start">Start Test</button>
     <script>
         var words;
+        var correct = 0;
+        var incorrect = 0;
         var text = ""
-
+        var count = 0;
+        var wordcount = 0;
+var first = false;
+function tellspeed(){
+    document.onkeydown = null;
+var speed = wordcount;
+var accuracy = correct/(correct + incorrect);
+document.querySelector("#text").innerHTML = "You got " + speed + "WPM and " + accuracy*100 + "% accuracy."
+}
         document.getElementById("start").onclick = () => {
             fetch("words").then((res) => res.text()).then((text) => {
                 words = text.split("\n");
@@ -42,7 +52,25 @@
                 document.querySelector("#text").append(word + " ")
                 text += word + " "
             }
-            document.onkeydown
+            
+            document.onkeydown = (e)=> {
+             if(first == false){
+                first = true;
+                setTimeout(tellspeed, 60000)
+             }
+             if(e.key === text[0]){
+                
+                correct++;
+             }
+             else{
+                incorrect++;
+             }
+             if(text[0]=== " "){
+                wordcount++;
+             }
+             text = text.substring(1, text.length);
+             document.querySelector("#text").innerHTML = text;
+            }
         }
     </script>
 </body>
