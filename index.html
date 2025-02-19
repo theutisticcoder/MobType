@@ -64,6 +64,7 @@ document.querySelector("#text").innerHTML = "You got " + speed + "WPM and " + ac
              else{
                 incorrect++;
              }
+             if(e.key === " ") e.preventDefault();
              if(text[0]=== " "){
                 wordcount++;
              }
