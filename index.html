@@ -46,7 +46,7 @@ document.querySelector("#text").innerHTML = "You got " + speed + "WPM and " + ac
             fetch("words").then((res) => res.text()).then((text) => {
                 words = text.split("\n");
             })
-            for (let i = 0; i < words.length; i++) {
+            for (let i = 0; i < 700; i++) {
                 var word = words[Math.floor(Math.random()* words.length)];
                 words = words.filter(w=> w!= word)
                 text += word + " ";
