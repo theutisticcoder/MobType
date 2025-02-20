@@ -43,6 +43,8 @@ var accuracy = correct/(correct + incorrect);
 document.querySelector("#text").innerHTML = "You got " + speed + "WPM and " + (accuracy*100).toFixed(2) + "% accuracy."
 }
         document.getElementById("start").onclick = () => {
+            wordcount = 0;
+            count = 0;
             fetch("words").then((res) => res.text()).then((text) => {
                 words = text.split("\n");
             })
@@ -68,8 +70,7 @@ document.querySelector("#text").innerHTML = "You got " + speed + "WPM and " + (a
              if(text[0]=== " "){
                 wordcount++;
              }
-             text = text.substring(1, text.length);
-             document.querySelector("#text").innerHTML = text;
+             document.querySelector("#text").innerHTML = document.querySelector("#text").innerText.substring(1, text.length);
             }
         }
     </script>
